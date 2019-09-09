@@ -11,10 +11,10 @@ include("header.php");
         }
     ?>
     <div class="horizontal-flex">
-        <a href="#resources" onclick="displayForm('resources')" class="btn">
+        <a href="#resources" class="btn">
             Browse Resources
         </a>
-        <a href="#resource-form" onclick="displayForm('addItem')" class="btn">
+        <a href="additem.php" class="btn">
             Add Item
         </a>
     </div>
@@ -22,14 +22,6 @@ include("header.php");
 </div>
 
 <?php
-// include("additem.php");
-// include("logIn.php");
-// include("signUp.php");
-// include("myItems.php");
 include("resources.php");
 include("footer.php");
-?>
-
-<?php
-$conn->close();
 ?>
