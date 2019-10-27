@@ -25,3 +25,11 @@ function openForm() {
     $("#primaryBox").hide();
     $("#rateForm").show();
 }
+
+$('.ui.search')
+  .search({
+    apiSettings: {
+      url: '/Database/php/universitySearch.php?name={query}'
+    }
+  })
+;

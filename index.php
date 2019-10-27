@@ -49,7 +49,7 @@
 
             <div class="ui container">
                 <div class="ui large secondary inverted pointing menu">
-                    <h3>Rate The Losers</h3>
+                    <h3><a href="/~group5">Rate The Losers</a></h3>
 
                     <div class="right item">
                         <?php

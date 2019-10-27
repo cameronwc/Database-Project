@@ -1,3 +1,7 @@
+:root {
+    --green: #21BA45;
+}
+
 .hidden.menu {
     display: none;
 }
@@ -113,4 +117,12 @@
 
 #rateForm > .ui.star.rating .icon {
     color: rgba(255, 255, 255, 0.50)
+}
+
+.menu h3 a {
+    color: white;
+}
+
+.menu h3 a:hover {
+    color: var(--green);
 }
