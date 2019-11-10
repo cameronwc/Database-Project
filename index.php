@@ -67,34 +67,44 @@
             <div class="ui text container">
                 <?php
                 if (isset($_COOKIE["email"])) {
-                    echo "<h1> Hello! " . $_COOKIE["email"] . "</h1>";
-                }
+		    echo "<h1> Hello! " . $_COOKIE["email"] . "</h1>";
+		    echo '
+                    <div id="primaryBox">
+                        <h1 class="ui inverted header">
+                            Rate The Losers!
+                        </h1>
+                        <h2>
+                            Click below to rate the sh*t teammates you\'ve done projects with!
+                        </h2>
+                        <div onclick="openForm()" class="ui huge primary button">Rate a loser <i class="right arrow icon"></i></div>
+                    </div>';
+		} else {
+		    echo '
+		    <div id="primaryBox">
+                        <h1 class="ui inverted header">
+                            Rate The Losers!
+                        </h1>
+                        <h2>
+			    Create an account and login to get started and start rating all those shi*ty teammates you\'ve had!
+			</h2>
+                    </div>';	
+		}
                 ?>
-                <div id="primaryBox">
-                    <h1 class="ui inverted header">
-                        Group 5
-                    </h1>
-                    <h2>
-                        Rate The Losers!
-                    </h2>
-                    <div onclick="openForm()" class="ui huge primary button">Rate a loser <i class="right arrow icon"></i></div>
-                </div>
-
-                <form class="ui form" id="rateForm">
+		<form class="ui form" id="rateForm" action="php/submitLoser.php" method="POST">
                     <h1 class="ui inverted header">
                         Rate a loser
                     </h1>
                     <div class="field">
                         <label>First Name</label>
-                        <input type="text" name="first-name" placeholder="John">
+                        <input type="text" name="fName" placeholder="John">
                     </div>
                     <div class="field">
                         <label>Last Name</label>
-                        <input type="text" name="last-name" placeholder="Doe">
+                        <input type="text" name="lName" placeholder="Doe">
                     </div>
                     <div class="ui search">
                         <label>University</label>
-                        <input class="prompt" type="text" placeholder="University of Colorado Colorado Springs">
+                        <input class="prompt" type="text" name="university"  placeholder="University of Colorado Colorado Springs">
                         <div class="results"></div>
                     </div>
                     <div class="ui star rating"></div>
@@ -109,8 +119,8 @@
             <div class="ui equal width stackable internally celled grid">
                 <div class="center aligned row">
                     <div class="column">
-                        <h3>View Groups</h3>
-                        <p>View university groups around the U.S.</p>
+                        <a href="losers.html"><h3>View the Losers</h3></a>
+                        <p>View the lousy teammates in the U.S.</p>
                     </div>
                     <div class="column">
                         <h3>View Universities</h3>

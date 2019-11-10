@@ -29,7 +29,7 @@ function openForm() {
 $('.ui.search')
   .search({
     apiSettings: {
-      url: '/Database/php/universitySearch.php?name={query}'
+      url: '/~group5/php/universitySearch.php?name={query}'
     }
   })
 ;
