@@ -72,7 +72,7 @@
                         <input class="prompt" type="text" name="university"  placeholder="University of Colorado Colorado Springs">
                         <div class="results"></div>
                     </div>
-                    <div class="ui star rating"></div>
+                    <div id="initialRating" class="ui star rating" data-max-rating="5" data-rating="1"></div>
                     <br>
                     <button class="ui green button" type="submit">Submit</button>
                 </form>
@@ -97,4 +97,4 @@
             </div>
         </div>
 
-<?php include("./partials/footer.html") ?>
+<?php include("./partials/footer.html") ?> 

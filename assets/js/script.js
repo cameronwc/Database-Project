@@ -16,10 +16,12 @@ $(document).ready(function () {
     $('.ui.sidebar').sidebar('attach events', '.toc.item');
 });
 
-$('.rating').rating({
-    initialRating: 2,
-    maxRating: 5
-});
+$('#initialRating')
+.rating({
+  initialRating: 2,
+  maxRating: 4
+})
+;
 
 function openForm() {
     $("#primaryBox").hide();
