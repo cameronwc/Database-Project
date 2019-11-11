@@ -31,7 +31,7 @@
                         // echo $sql;
                         $res = $conn->query($sql);
                         $row = $res->fetch_assoc();
-                        echo "<h1> Hello! " . $row["fName"] . "</h1>";
+                        echo "<h1> Hello " . $row["fName"] . "!</h1>";
 		                echo '
                         <div id="primaryBox">
                             <h1 class="ui inverted header">
