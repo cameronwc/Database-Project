@@ -9,7 +9,7 @@ $port = 3306;
 
 // Local server credentials
 $username = "root";
-$password = "root";
+$password = "cooper";
 $conn = new mysqli($servername, $username, $password, "dbproject", 3306);
 
 if($conn->connect_error) {
