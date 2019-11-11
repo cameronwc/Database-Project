@@ -21,19 +21,28 @@
             </div>
 
             <div class="ui text container">
-                <?php
-                if (isset($_COOKIE["email"])) {
-		    echo "<h1> Hello! " . $_COOKIE["email"] . "</h1>";
-		    echo '
-                    <div id="primaryBox">
-                        <h1 class="ui inverted header">
-                            Rate The Losers!
-                        </h1>
-                        <h2>
-                            Click below to rate the sh*t teammates you\'ve done projects with!
-                        </h2>
-                        <div onclick="openForm()" class="ui huge primary button">Rate a loser <i class="right arrow icon"></i></div>
-                    </div>';
+            <?php
+                    include("./php/db.php");
+
+                    if (isset($_COOKIE["email"])) {
+                        // Form database query
+                        $userEmail = $_COOKIE["email"];
+                        $sql = "SELECT fName FROM user WHERE email=\"$userEmail\"";
+                        // echo $sql;
+                        $res = $conn->query($sql);
+                        $row = $res->fetch_assoc();
+                        echo "<h1> Hello " . $row["fName"] . "!</h1>";
+		                echo '
+                        <div id="primaryBox">
+                            <h1 class="ui inverted header">
+                                Rate The Losers!
+                            </h1>
+                            <h2>
+                                Click below to rate the sh*t teammates you\'ve done projects with!
+                            </h2>
+                            <div onclick="openForm()" class="ui huge primary button">Rate a loser <i class="right arrow icon"></i></div>
+                        </div>';
+                    $conn->close();
 		} else {
 		    echo '
 		    <div id="primaryBox">
