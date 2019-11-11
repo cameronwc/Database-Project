@@ -1,48 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Rate a loser</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.css">
-    <link rel="stylesheet" href="./assets/css/stylesheet.css">
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.js"></script>
-</head>
-
-<body>
-
-    <!-- Following Menu -->
-    <div class="ui large top fixed hidden menu">
-        <div class="ui container">
-            <a class="active item">Home</a>
-            <a class="item">Work</a>
-            <a class="item">Company</a>
-            <a class="item">Careers</a>
-            <div class="right menu">
-                <div class="item">
-                    <a href="login.html" class="ui button">Log in</a>
-                </div>
-                <div class="item">
-                    <a href="register.html" class="ui primary button">Sign Up</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Sidebar Menu -->
-    <div class="ui vertical inverted sidebar menu">
-        <a class="active item">Home</a>
-        <a class="item">Work</a>
-        <a class="item">Company</a>
-        <a class="item">Careers</a>
-        <a href="login.html" class="item">Login</a>
-        <a href="register.html" class="item">Signup</a>
-    </div>
-
-
+<?php include("./partials/header.html") ?>
     <!-- Page Contents -->
     <div class="pusher">
         <div class="ui inverted vertical masthead center aligned segment">
@@ -119,11 +75,11 @@
             <div class="ui equal width stackable internally celled grid">
                 <div class="center aligned row">
                     <div class="column">
-                        <a href="getLosers.php"><h3>View the Losers</h3></a>
+                        <h3><a href="getLosers.php">View the Losers</a></h3>
                         <p>View the lousy teammates in the U.S.</p>
                     </div>
                     <div class="column">
-                        <h3>View Universities</h3>
+                        <h3><a href="viewUniversities.php">View Universities</a></h3>
                         <p>
                             View universities around the U.S.
                         </p>
@@ -132,36 +88,4 @@
             </div>
         </div>
 
-        <div class="ui inverted vertical footer segment">
-            <div class="ui container">
-                <div class="ui stackable inverted divided equal height stackable grid">
-                    <div class="three wide column">
-                        <h4 class="ui inverted header">About</h4>
-                        <div class="ui inverted link list">
-                            <a href="#" class="item">Sitemap</a>
-                            <a href="#" class="item">Contact Us</a>
-                            <a href="#" class="item">Religious Ceremonies</a>
-                            <a href="#" class="item">Gazebo Plans</a>
-                        </div>
-                    </div>
-                    <div class="three wide column">
-                        <h4 class="ui inverted header">Services</h4>
-                        <div class="ui inverted link list">
-                            <a href="#" class="item">Banana Pre-Order</a>
-                            <a href="#" class="item">DNA FAQ</a>
-                            <a href="#" class="item">How To Access</a>
-                            <a href="#" class="item">Favorite X-Men</a>
-                        </div>
-                    </div>
-                    <div class="seven wide column">
-                        <h4 class="ui inverted header">Footer Header</h4>
-                        <p>Extra space for a call to action inside the footer that could help re-engage users.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</body>
-
-<script src="./assets/js/script.js"></script>
-</html>
+<?php include("./partials/footer.html") ?>
