@@ -119,7 +119,7 @@
             <div class="ui equal width stackable internally celled grid">
                 <div class="center aligned row">
                     <div class="column">
-                        <a href="losers.html"><h3>View the Losers</h3></a>
+                        <a href="getLosers.php"><h3>View the Losers</h3></a>
                         <p>View the lousy teammates in the U.S.</p>
                     </div>
                     <div class="column">
