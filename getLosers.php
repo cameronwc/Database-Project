@@ -45,9 +45,15 @@
                         while($row = $res->fetch_assoc()) {
                             echo "<tr>
                                     <td data-label='Name'>".$row["fName"]." ".$row["lName"]."</td>
-                                    <td data-label='Rating'>".$row["rating"]."</td>
+                                    <td data-label='Rating'><div id='".$row['fName'].$row['lName']."' class='ui star rating'>".$row["rating"]."</div></td>
                                     <td data-label='University'>".$row["university"]."</td>
                                 </tr>";
+                            echo "<script>
+                                $('#".$row['fName'].$row['lName']."').rating({
+                                    initialRating: ".$row['rating'].",
+                                    maxRating: 5
+                                }).rating('disable');
+                            </script>";
                         }
                     } else {
                         echo "0 results";
