@@ -45,7 +45,7 @@
                         // output data of each row
                         while($row = $res->fetch_assoc()) {
                             echo "<tr>
-                                    <td data-label='Name'>".$row["name"]."</td>
+                                    <td class='click' data-label='Name'><a href='getLosers.php?university=".urlencode($row["name"])."'>".$row["name"]."</td>
                                 </tr>";
                             echo "<script>
                                 $('#".$row['name'].$row['lName']."').rating('disable');
