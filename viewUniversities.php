@@ -26,7 +26,7 @@
         <form class="ui form" id="universitySearch" action="viewUniversities.php" method="POST">
             <div class="ui search">
                 <label>University</label>
-                <input class="prompt" type="text" id="searchBar" name="q" placeholder="University of Colorado Colorado Springs">
+                <input type="text" id="searchBar" name="q" placeholder="University of Colorado Colorado Springs">
                 <div class="results"></div>
                 <button class="ui green button" type="submit">Submit</button>
             </div>
