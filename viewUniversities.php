@@ -23,35 +23,36 @@
             </div>
         </div>
 
-        <div class="ui search" id="universitySearch">
-            <label>University</label>
-            <input class="prompt" type="text"  name="q" placeholder="University of Colorado Colorado Springs">
-            <input class="ui green button" type="submit" name="submit" value="Find">
-        </div>
+        <form class="ui form" id="universitySearch" action="viewUniversities.php" method="POST">
+            <div class="ui search">
+                <label>University</label>
+                <input class="prompt" type="text" name="q"  placeholder="University of Colorado Colorado Springs">
+                <div class="results"></div>
+            </div>
+            <button class="ui green button" type="submit">Submit</button>
+        </form>
         <table class="ui celled table">
             <tbody>
 
             <?php
                 // Form database query
-                if (isset($_POST['submit'])) {
-                    $q = $connection->real_escape_string($_POST['q']);
-                    $sql = "SELECT * FROM university WHERE name LIKE '%$q%'";
-                    
-                    $res = $conn->query($sql);
+                $q = $connection->real_escape_string($_POST['q']);
+                $sql = "SELECT * FROM university WHERE name LIKE '%$q%'";
+                
+                $res = $conn->query($sql);
 
-                    if ($res->num_rows > 0) {
-                        // output data of each row
-                        while($row = $res->fetch_assoc()) {
-                            echo "<tr>
-                                    <td data-label='Name'>".$row["name"]."</td>
-                                </tr>";
-                            echo "<script>
-                                $('#".$row['name'].$row['lName']."').rating('disable');
-                            </script>";
-                        }
-                    } else {
-                        echo "0 results";
+                if ($res->num_rows > 0) {
+                    // output data of each row
+                    while($row = $res->fetch_assoc()) {
+                        echo "<tr>
+                                <td data-label='Name'>".$row["name"]."</td>
+                            </tr>";
+                        echo "<script>
+                            $('#".$row['name'].$row['lName']."').rating('disable');
+                        </script>";
                     }
+                } else {
+                    echo "0 results";
                 }
             ?>
             </tbody>
@@ -59,7 +60,3 @@
     </div>
 </div> 
 <?php include("./partials/footer.html"); ?>
-
-
-
-
