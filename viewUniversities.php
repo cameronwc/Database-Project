@@ -26,7 +26,7 @@
         <form class="ui form" id="universitySearch" action="viewUniversities.php" method="POST">
             <div class="ui search">
                 <label>University</label>
-                <input class="prompt" type="text" name="q"  placeholder="University of Colorado Colorado Springs">
+                <input class="prompt" type="text" id="searchBar" name="q" placeholder="University of Colorado Colorado Springs">
                 <div class="results"></div>
             </div>
             <button class="ui green button" type="submit">Submit</button>
@@ -36,7 +36,7 @@
 
             <?php
                 // Form database query
-                $q = $connection->real_escape_string($_POST['q']);
+                $q = $conn->real_escape_string($_POST['q']);
                 $sql = "SELECT * FROM university WHERE name LIKE '%$q%'";
                 
                 $res = $conn->query($sql);
