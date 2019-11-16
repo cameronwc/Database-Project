@@ -28,35 +28,36 @@
                 <label>University</label>
                 <input class="prompt" type="text" id="searchBar" name="q" placeholder="University of Colorado Colorado Springs">
                 <div class="results"></div>
+                <button class="ui green button" type="submit">Submit</button>
             </div>
-            <button class="ui green button" type="submit">Submit</button>
-        </form>
-        <table class="ui celled table">
-            <tbody>
 
-            <?php
-                // Form database query
-                $q = $conn->real_escape_string($_POST['q']);
-                $sql = "SELECT * FROM university WHERE name LIKE '%$q%'";
-                
-                $res = $conn->query($sql);
+            <table class="ui celled table">
+                <tbody>
 
-                if ($res->num_rows > 0) {
-                    // output data of each row
-                    while($row = $res->fetch_assoc()) {
-                        echo "<tr>
-                                <td data-label='Name'>".$row["name"]."</td>
-                            </tr>";
-                        echo "<script>
-                            $('#".$row['name'].$row['lName']."').rating('disable');
-                        </script>";
+                <?php
+                    // Form database query
+                    $q = $conn->real_escape_string($_POST['q']);
+                    $sql = "SELECT * FROM university WHERE name LIKE '%$q%' ORDER BY name";
+                    
+                    $res = $conn->query($sql);
+
+                    if ($res->num_rows > 0) {
+                        // output data of each row
+                        while($row = $res->fetch_assoc()) {
+                            echo "<tr>
+                                    <td data-label='Name'>".$row["name"]."</td>
+                                </tr>";
+                            echo "<script>
+                                $('#".$row['name'].$row['lName']."').rating('disable');
+                            </script>";
+                        }
+                    } else {
+                        echo "0 results";
                     }
-                } else {
-                    echo "0 results";
-                }
-            ?>
-            </tbody>
-        </table>
+                ?>
+                </tbody>
+            </table>
+        </form>
     </div>
 </div> 
 <?php include("./partials/footer.html"); ?>
