@@ -138,3 +138,19 @@
     margin-left:auto; 
     margin-right:auto;
   }
+
+#loserSearch input{
+    width: 60.00%!important;
+    transition: width 0.25s;
+  }
+
+ .click a {
+    display: block;
+    color: black;
+  }
+
+ .click a:hover {
+    display: block;
+    color: black;
+    text-decoration: underline;
+  }
