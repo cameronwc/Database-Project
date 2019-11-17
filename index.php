@@ -1,6 +1,5 @@
 <?php include("./partials/header.html") ?>
     <!-- Page Contents -->
-    <div class="pusher">
         <div class="ui inverted vertical masthead center aligned segment">
 
             <div class="ui container">
