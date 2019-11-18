@@ -127,29 +127,33 @@
     color: var(--green);
 }
 
-#universitySearch input{
-    width: 60.00%!important;
-    transition: width 0.25s;
-  }
+#universitySearch, #loserSearch {
+    margin-top: 2%;
+    margin-bottom: 5%;
+    text-align: left;
+}
 
-  #universitySearch .ui.celled.table {
+#universitySearch .ui.celled.table {
     width: 75.00%!important;
     transition: width 0.25s;
     margin-left:auto; 
     margin-right:auto;
-  }
+}
 
-#loserSearch input{
-    width: 60.00%!important;
-    transition: width 0.25s;
-  }
+#universitySearch .button, #loserSearch .button {
+    width: 100%;
+}
 
- .click a {
+#loserSearch .button {
+    margin-top: 2%;
+}
+
+.click a {
     display: block;
     color: black;
-  }
+}
 
- .click a:hover {
+.click a:hover {
     display: block;
     color: black;
     text-decoration: underline;
@@ -158,4 +162,17 @@
 .flex-between {
     display: flex;
     justify-content: space-between;
+}
+
+#header {
+    background: url("../img/background.jpg");
+    background-size: cover;
+    padding: 0em;
+}
+
+.overlay {
+    padding: 1em;
+    background: rgba(0, 0, 0, 0.5);
+    height: 100%;
+    min-height: 700px;
 }

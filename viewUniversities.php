@@ -1,6 +1,6 @@
-<?php 
-    include("./php/db.php");
-    include("./partials/header.html");
+<?php
+include("./php/db.php");
+include("./partials/header.html");
 ?>
 
 <div class="pusher">
@@ -23,41 +23,44 @@
             </div>
         </div>
 
-        <form class="ui form" id="universitySearch" action="viewUniversities.php" method="POST">
-            <div class="ui search">
-                <label>University</label>
-                <input type="text" id="searchBar" name="q" placeholder="University of Colorado Colorado Springs">
-                <div class="results"></div>
-                <button class="ui green button" type="submit">Submit</button>
-            </div>
-
+        <div class="ui text container">
+            <form class="search-custom ui form" id="universitySearch" action="viewUniversities.php" method="POST">
+                <label for="">University</label>
+                <div class="ui search field">
+                    <input type="text" id="searchBar" name="q" placeholder="University of Colorado Colorado Springs">
+                    <div class="results"></div>
+                </div>
+                <button class="ui large green button" type="submit">Search</button>
+            </form>
+        </div>
+        <div class="ui text container">
             <table class="ui celled table">
                 <tbody>
 
-                <?php
+                    <?php
                     // Form database query
                     $q = $conn->real_escape_string($_POST['q']);
                     $sql = "SELECT * FROM university WHERE name LIKE '%$q%' ORDER BY name";
-                    
+
                     $res = $conn->query($sql);
 
                     if ($res->num_rows > 0) {
                         // output data of each row
-                        while($row = $res->fetch_assoc()) {
+                        while ($row = $res->fetch_assoc()) {
                             echo "<tr>
-                                    <td class='click' data-label='Name'><a href='getLosers.php?university=".urlencode($row["name"])."'>".$row["name"]."</td>
+                                    <td class='click' data-label='Name'><a href='getLosers.php?university=" . urlencode($row["name"]) . "'>" . $row["name"] . "</td>
                                 </tr>";
                             echo "<script>
-                                $('#".$row['name'].$row['lName']."').rating('disable');
+                                $('#" . $row['name'] . $row['lName'] . "').rating('disable');
                             </script>";
                         }
                     } else {
                         echo "0 results";
                     }
-                ?>
+                    ?>
                 </tbody>
             </table>
-        </form>
+        </div>
     </div>
-</div> 
+</div>
 <?php include("./partials/footer.html"); ?>
