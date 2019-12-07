@@ -27,14 +27,61 @@ include("./partials/header.html");
             <div class="ui text container">
                 <div class="ui search">
                     <label>University</label>
-                    <input type="text" id="searchBar" name="university" placeholder="University of Colorado Colorado Springs">
+                    <input type="text" id="searchBar" name="university"
+                        placeholder="University of Colorado Colorado Springs">
                 </div>
-
                 <div class="ui search">
                     <label>Student Name</label>
                     <input type="text" id="searchBar" name="name" placeholder="John Doe">
-                    <button class="ui green button" type="submit">Submit</button>
                 </div>
+                <div class="ui labeled icon top right pointing dropdown button">
+                    <input type="hidden" name="ratingFilter">
+                    <i class="filter icon"></i>
+                    <span class="text">Filter Posts</span>
+                    <div class="menu">
+                        <div class="header">
+                            <i class="tags icon"></i>
+                            Filter by rating
+                        </div>
+                        <div class="item" data-value="1">
+                            <i class="star icon yellow"></i>
+                            <i class="star icon"></i>
+                            <i class="star icon"></i>
+                            <i class="star icon"></i>
+                            <i class="star icon"></i>
+                        </div>
+                        <div class="item" data-value="2">
+                            <i class="star icon yellow"></i>
+                            <i class="star icon yellow"></i>
+                            <i class="star icon"></i>
+                            <i class="star icon"></i>
+                            <i class="star icon"></i>
+                        </div>
+                        <div class="item" data-value="3">
+                            <i class="star icon yellow"></i>
+                            <i class="star icon yellow"></i>
+                            <i class="star icon yellow"></i>
+                            <i class="star icon"></i>
+                            <i class="star icon"></i>
+                        </div>
+                        <div class="item" data-value="4">
+                            <i class="star icon yellow"></i>
+                            <i class="star icon yellow"></i>
+                            <i class="star icon yellow"></i>
+                            <i class="star icon yellow"></i>
+                            <i class="star icon"></i>
+                        </div>
+                        <div class="item" data-value="5">
+                            <i class="star icon yellow"></i>
+                            <i class="star icon yellow"></i>
+                            <i class="star icon yellow"></i>
+                            <i class="star icon yellow"></i>
+                            <i class="star icon yellow"></i>
+                        </div>
+                        <div class="divider"></div>
+                    </div>
+                </div>
+                <button class="ui green button" type="submit">Submit</button>
             </div>
         </form>
 
@@ -48,16 +95,21 @@ include("./partials/header.html");
                     </tr>
                 </thead>
                 <tbody>
-
                     <?php
                     // Form database query
-                    $name = $conn->real_escape_string($_POST['name']);
+                    $name = $_POST['name'];
                     if (isset($_GET['university'])) {
-                        $university = $conn->real_escape_string($_GET['university']);
+                        $university = $_GET['university'];
                     } else {
-                        $university = $conn->real_escape_string($_POST['university']);
+                        $university = $_POST['university'];
                     }
-                    $sql = "SELECT * FROM loser WHERE (fName LIKE '%$name%' OR lName LIKE '%$name%') AND university LIKE '%$university%'";
+
+                    if (isset($_POST['ratingFilter']) && !empty($_POST['ratingFilter'])) {
+                        $ratingFilter = intval($_POST['ratingFilter']);
+                        $sql = "SELECT * FROM loser WHERE (fName LIKE '%$name%' OR lName LIKE '%$name%') AND university LIKE '%$university%' AND rating=$ratingFilter";
+                    } else {
+                        $sql = "SELECT * FROM loser WHERE (fName LIKE '%$name%' OR lName LIKE '%$name%') AND university LIKE '%$university%'";
+                    }
 
                     $res = $conn->query($sql);
 
@@ -81,4 +133,8 @@ include("./partials/header.html");
             </table>
         </div>
     </div>
+
+    <script>
+    $('.ui.dropdown').dropdown('get value');
+    </script>
     <?php include("./partials/footer.html"); ?>

@@ -35,12 +35,18 @@ include("./partials/header.html");
         </div>
         <div class="ui text container">
             <table class="ui celled table">
+                <thead>
+                    <tr>
+                        <th>University Name</th>
+                        <th>Number of Losers</th>
+                    </tr>
+                </thead>
                 <tbody>
 
                     <?php
                     // Form database query
                     $q = $conn->real_escape_string($_POST['q']);
-                    $sql = "SELECT * FROM university WHERE name LIKE '%$q%' ORDER BY name";
+                    $sql = "SELECT COALESCE(COUNT(l.fName), 0) AS 'count', u.name AS 'name' FROM university u LEFT JOIN loser l ON u.name = l.university WHERE name LIKE '%$q%' GROUP BY u.name ORDER BY u.name";
 
                     $res = $conn->query($sql);
 
@@ -49,6 +55,7 @@ include("./partials/header.html");
                         while ($row = $res->fetch_assoc()) {
                             echo "<tr>
                                     <td class='click' data-label='Name'><a href='getLosers.php?university=" . urlencode($row["name"]) . "'>" . $row["name"] . "</td>
+                                    <td data-label='LoserCount'>" . $row["count"] . "</td>
                                 </tr>";
                             echo "<script>
                                 $('#" . $row['name'] . $row['lName'] . "').rating('disable');
