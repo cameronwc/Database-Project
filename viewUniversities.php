@@ -27,7 +27,7 @@ include("./partials/header.html");
             <form class="search-custom ui form" id="universitySearch" action="viewUniversities.php" method="POST">
                 <label for="">University</label>
                 <div class="ui search field">
-                    <input type="text" id="searchBar" name="q" placeholder="University of Colorado Colorado Springs">
+                    <input class="prompt" type="text" id="searchBar" name="q" placeholder="University of Colorado Colorado Springs">
                     <div class="results"></div>
                 </div>
                 <button class="ui large green button" type="submit">Search</button>
